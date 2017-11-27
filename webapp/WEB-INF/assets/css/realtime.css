@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+@import "mysite.css";
+
+
+#realtime		{ padding:20px;	width:1036px; height:1180px; background-color:#ffffff;}
+#realtimeTest		{ padding:20px;	width:1036px; height:900px; background-color:#d8d8d8;}
+
+
+#color-type {
+	width: 300px;
+	float: right;
+}
+
+.color-text {
+	float: left;
+	margin-left: 5px;
+}
+
+.circle1 {
+	margin-left: 15px;
+	float: left;
+	width: 16px;
+	height: 16px;
+	background: #46a3ff;
+	border-radius: 10px;
+}
+
+.circle2 {
+	margin-left: 15px;
+	float: left;
+	width: 16px;
+	height: 16px;
+	background: #00d900;
+	border-radius: 10px;
+}
+
+.circle3 {
+	margin-left: 15px;
+	float: left;
+	width: 16px;
+	height: 16px;
+	background: #ff8040;
+	border-radius: 10px;
+}
+
+.circle4 {
+	margin-left: 15px;
+	float: left;
+	width: 16px;
+	height: 16px;
+	background: #d70000;
+	border-radius: 10px;
+}

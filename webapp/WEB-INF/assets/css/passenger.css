@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+@import "mysite.css";
+
+
+#passenger		{ padding:20px;	width:1036px; height:1230px; background-color:#ffffff;}
+#realtimeTest		{ padding:20px;	width:1036px; height:900px; background-color:#d8d8d8;}
+
