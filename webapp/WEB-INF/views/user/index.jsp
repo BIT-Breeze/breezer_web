@@ -54,14 +54,14 @@
 					<form id="login-form" class="login-form" name="login-form" method="post" action="${pageContext.servletContext.contextPath }/user/login">
 						<div id="login-left"  style="float: left;">
 							<label class="block-label" for="id">ID  </label>
-							<input class="input-box" id="id" name="id" type="text" value=""> <br>
+							<input class="input-box" id="ID" name="ID" type="text" value=""> <br>
 							<label class="block-label" for="pw">PW  </label>
-							<input class="input-box" id="pw" name="pw" type="password" value=""> <br>
+							<input class="input-box" id="PW" name="PW" type="password" value=""> <br>
 						</div>
 						
 						
 						<div id="login-right" style="float: left;">	
-							<button type="button" id="login-button" > Login</button>
+							<button type="submit" id="login-button" > Login</button>
 						</div>
 						
 						
@@ -70,9 +70,19 @@
 						<div style="height:20px;">
 						</div>
 						
-						<button type="button" class="join-button"> breezer</button>
-						<button type="button" class="join-button"> facebook</button>
-						<button type="button" class="join-button"> google</button>
+						<form id="breezer_login"  name="breezer_login" method="post" action="${pageContext.servletContext.contextPath }/user/breezer_join">	
+							<button type="submit" class="join-button"> breezer join</button>
+						</form>
+						
+						<form id="facebook_login"  name="facebook_login" method="post" action="${pageContext.servletContext.contextPath }/user/facebook_login">	
+							<button type="submit" class="join-button"> facebook_login</button>
+						</form>
+						
+						<form id="google_login"  name="google_login" method="post" action="${pageContext.servletContext.contextPath }/user/google_login">	
+							<button type="submit" class="join-button"> google_login</button>
+						</form>
+						
+						
 					
 					</div>
 				</div>

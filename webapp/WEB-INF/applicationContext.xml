@@ -14,7 +14,7 @@
 	<context:annotation-config />
 
 	<context:component-scan
-		base-package="com.breezer.web.repository, com.breezer.web.service"> <!-- com.bigdata2017.mysite.exception -->
+		base-package="com.breezer.web.repository, com.breezer.web.service, com.breezer.web.exception"> <!-- com.bigdata2017.mysite.exception -->
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Repository" />
 		<context:include-filter type="annotation"

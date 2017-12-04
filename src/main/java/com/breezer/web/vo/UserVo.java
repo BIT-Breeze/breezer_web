@@ -10,6 +10,8 @@ public class UserVo {
 	private String job;
 	private String nation;
 	private String joinDate;
+	private String role;
+	
 	
 	
 	public long getIdx() {
@@ -66,13 +68,20 @@ public class UserVo {
 	public void setJoinDate(String joinDate) {
 		this.joinDate = joinDate;
 	}
-	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	
 	@Override
 	public String toString() {
 		return "UserVo [idx=" + idx + ", ID=" + ID + ", PW=" + PW + ", nickName=" + nickName + ", gender=" + gender
-				+ ", birth=" + birth + ", job=" + job + ", nation=" + nation + ", joinDate=" + joinDate + "]";
+				+ ", birth=" + birth + ", job=" + job + ", nation=" + nation + ", joinDate=" + joinDate + ", role="
+				+ role + "]";
 	}
+	
 	
 	
 
