@@ -13,8 +13,8 @@ public class UserService {
 	private UserDao userDao;
 	
 	
-	public boolean joinMessage() {
-		return userDao.insert() == 1;
+	public boolean joinMessage(UserVo vo) {
+		return userDao.insert(vo) == 1;
 	}
 	
 	public UserVo getUser(String ID, String PW) {

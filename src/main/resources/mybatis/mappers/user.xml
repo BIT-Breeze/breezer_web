@@ -11,6 +11,22 @@
 		where ID=#{ID } and PW=#{PW }
 		]]>
 	</select>
+	
+	<insert id="insert" parameterType="uservo">
+		<![CDATA[
+		insert into TB_USER (ID, PW, nickName, gender, birth, job, nation, joinDate, role)
+		values (#{ID }, #{PW }, #{nickName }, #{gender }, #{birth }, #{job }, #{nation }, curdate(), 'USER') 
+	    ]]>		
+	</insert>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	<select id="getByNo" 
 			parameterType="long"
@@ -50,17 +66,5 @@
 	
 			
 			
-	<insert id="insert" parameterType="uservo">
-		<![CDATA[
-		insert 
-		  into member
-	    values (seq_member.nextval, 
-	    		#{name },
-	    		#{password },
-	    		#{email },
-	    		#{gender },
-	    		sysdate,
-	    		'USER')
-	    ]]>		
-	</insert>
+	
 </mapper>

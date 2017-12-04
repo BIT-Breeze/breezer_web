@@ -40,6 +40,41 @@
 		
 		breezer join
 		
+		<form id="breezer_login"  name="breezer_login" method="post" action="${pageContext.servletContext.contextPath }/user/breezer_join">
+			<label class="block-label" for="id">ID  </label>
+			<input class="input-box" id="ID" name="ID" type="text" value=""> <br>
+			<label class="block-label" for="pw">PW  </label>
+			<input class="input-box" id="PW" name="PW" type="password" value=""> <br>
+			<label class="block-label" for="nickName">별명  </label>
+			<input class="input-box" id="nickName" name="nickName" type="text" value=""> <br>
+			<fieldset>
+			<label class="block-label" for="gender">성별</label>
+				<label>남</label> <input type="radio" name="gender" value="male" checked="checked">			
+				<label>여</label> <input type="radio" name="gender" value="female" >
+			</fieldset>
+			<label class="block-label" for="birth">생년월일  </label>
+			<input type="date" id="birth" name="birth" value="1990-01-01"> <br>
+			<label class="block-label" for="job">직업  </label>
+			<select name="job">
+				<option value="">직업선택</option>
+				<option value="00">무직</option>
+				<option value="01">학생</option>
+				<option value="02">직장인</option>
+				<option value="99">기타</option> 
+			</select><br>
+			<!-- <input class="input-box" id="job" name="job" type="text" value=""> <br> -->
+			<label class="block-label" for="nation">국가  </label>
+			<select name="nation">
+				<option value="">국가선택</option>
+				<option value="001">한국</option>
+				<option value="002">일본</option>
+				<option value="003">중국</option>
+				<option value="999">기타</option> 
+			</select><br>
+			
+			<button type="submit" class="join-button"> breezer join</button>
+		</form>
+		
 		<!-- footer -->
 		<c:import url="/WEB-INF/views/includes/footer.jsp" /> 
 	</div>

@@ -70,7 +70,7 @@
 						<div style="height:20px;">
 						</div>
 						
-						<form id="breezer_login"  name="breezer_login" method="post" action="${pageContext.servletContext.contextPath }/user/breezer_join">	
+						<form id="breezer_login"  name="breezer_login" method="post" action="${pageContext.servletContext.contextPath }/user/breezer_join_page">	
 							<button type="submit" class="join-button"> breezer join</button>
 						</form>
 						

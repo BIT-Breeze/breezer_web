@@ -13,8 +13,8 @@ public class UserDao {
 	private SqlSession sqlSession;
 	
 	
-	public int insert() {
-		return sqlSession.insert("user.insert");
+	public int insert(UserVo vo) {
+		return sqlSession.insert("user.insert", vo);
 	}
 	
 	public UserVo getUser(String ID, String PW) {

@@ -38,12 +38,11 @@
 
 	<div id="container">
 		
-		mytour
-		${authUser.ID }
-		
-		<form id="logout"  name="logout" method="post" action="${pageContext.servletContext.contextPath }/user/logout">	
-			<button type="submit" class="join-button"> logout</button>
+		breezer join success
+		<form id="loginsuccess"  name="loginsuccess" method="post" action="${pageContext.servletContext.contextPath }/tour/mytour">	
+			<button type="submit" class="join-button"> go to mytour</button>
 		</form>
+		
 		
 		<!-- footer -->
 		<c:import url="/WEB-INF/views/includes/footer.jsp" /> 
