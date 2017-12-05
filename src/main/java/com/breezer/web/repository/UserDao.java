@@ -13,17 +13,16 @@ public class UserDao {
 	private SqlSession sqlSession;
 	
 	
-	public int insert(UserVo vo) {
+	public int joinUser(UserVo vo) {
 		return sqlSession.insert("user.insert", vo);
 	}
 	
-	public UserVo getUser(String ID, String PW) {
+	
+	public UserVo getUser(UserVo vo) {
 		
-		UserVo vo = new UserVo();
-		vo.setID(ID);
-		vo.setPW(PW);
+				
 		
-		UserVo result = sqlSession.selectOne("user.getByIDAndPW", vo);
+		UserVo result = sqlSession.selectOne("user.getByID", vo);
 		return result;
 	}
 }

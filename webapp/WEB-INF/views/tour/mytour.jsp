@@ -39,7 +39,7 @@
 	<div id="container">
 		
 		mytour
-		${authUser.ID }
+		${authUser.nickName }
 		
 		<form id="logout"  name="logout" method="post" action="${pageContext.servletContext.contextPath }/user/logout">	
 			<button type="submit" class="join-button"> logout</button>

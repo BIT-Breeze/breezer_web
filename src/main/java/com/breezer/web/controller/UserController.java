@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.breezer.web.service.UserService;
 import com.breezer.web.vo.UserVo;
 
-@Controller
+@Controller("userController")
 @RequestMapping("/user")
 public class UserController {
 	
@@ -27,7 +27,7 @@ public class UserController {
 	@RequestMapping( value="/breezer_join", method=RequestMethod.POST)
 	public String breezerJoin( HttpServletRequest request, @ModelAttribute UserVo vo) {
 		
-		userService.joinMessage(vo);
+		//userService.joinMessage(vo);
 		
 		
 		HttpSession session = request.getSession( true );
@@ -36,6 +36,9 @@ public class UserController {
 		
 		return "user/joinsuccess";
 	}
+	
+	
+
 	
 	
 }

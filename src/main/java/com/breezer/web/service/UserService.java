@@ -11,15 +11,28 @@ public class UserService {
 
 	@Autowired
 	private UserDao userDao;
-	
-	
-	public boolean joinMessage(UserVo vo) {
-		return userDao.insert(vo) == 1;
-	}
-	
-	public UserVo getUser(String ID, String PW) {
+
+	// 전체적인 로그인
+	public UserVo loginMessage(UserVo vo) {
+		// 유저가 존재하는지 채크
+		UserVo getVo = userDao.getUser(vo);
 		
-		UserVo vo = userDao.getUser(ID, PW);
-		return vo;
+		if ( getVo != null) {
+			// 있으면 token, expiresIn 을 업데이트
+			System.out.println("userService id is already exist");
+			//userDao.etcUpdate(vo);
+			return getVo;
+		} else {
+			// 없으면 joinMessage
+			System.out.println("userService id is not exist - join");
+			userDao.joinUser(vo);
+			return vo;
+		}
+
+		
 	}
+
+
+
+
 }
