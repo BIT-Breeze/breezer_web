@@ -6,8 +6,9 @@
 		<typeAlias alias="songvo" type="com.enter.sbms.vo.BusinfoVo"/>
 		<typeAlias alias="yearvo" type="com.enter.sbms.vo.RealtimeVo"/>
 	 -->		
-	 	<typeAlias alias="testvo" type="com.breezer.web.vo.TestVo"/>
 	 	<typeAlias alias="uservo" type="com.breezer.web.vo.UserVo"/>
+	 	<typeAlias alias="postvo" type="com.breezer.web.vo.PostVo"/>
+	 	<typeAlias alias="snsvo" type="com.breezer.web.vo.SNSVo"/>
     </typeAliases>	
 	
 	<mappers>
@@ -16,8 +17,8 @@
 		<mapper resource="mybatis/mappers/driverinfo.xml"/>
 		<mapper resource="mybatis/mappers/passenger.xml"/>
 	 -->
-	 	<mapper resource="mybatis/mappers/test.xml"/>
 	 	<mapper resource="mybatis/mappers/user.xml"/>
+	 	<mapper resource="mybatis/mappers/sns.xml"/>
 	</mappers>
 	
 </configuration>
