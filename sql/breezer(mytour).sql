@@ -5,17 +5,10 @@ select *
 		UNION ALL 
 		select          t.IDX, t.ID,  t.TITLE, '' CONTENT, t.MAIN_PHOTO PHOTO,    t.START_DATE,    
 			      t.END_DATE, t.SCORE, t.RECOMMEND, null POST_DATE, p.trip_date, '' LOCATION 
-		  from TB_TOUR t, (select t.idx, min(p.trip_date) trip_date
-							 from TB_TOUR t, TB_POST p
-							where t.IDX in (select TOUR_IDX
-											  from TB_POST
-										  group by tour_idx)
-							  and p.TOUR_IDX = t.IDX
-						 group by t.IDX) p
-		 where t.IDX in (select TOUR_IDX
-						   from TB_POST
-					   group by tour_idx)
-		   and t.IDX = p.IDX) f
+		  from TB_TOUR t, (select p.TOUR_IDX, min(p.trip_date) trip_date
+							 from TB_POST p
+						 group by p.TOUR_IDX) p
+		 where t.IDX = p.TOUR_IDX) f
 	  order by f.trip_date, f.title;
 
 
