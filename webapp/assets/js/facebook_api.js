@@ -149,9 +149,11 @@ function login() {
 			
 			console.log(response.data)
 			
+			
 			console.log("success~")
 			
-			// window.location.href = "/breezer/tour/mytour";
+			// 로그인 성공시 mytour 페이지로 이동한다 
+			window.location.href = "/breezer/tour/mytour";
 
 
 			
