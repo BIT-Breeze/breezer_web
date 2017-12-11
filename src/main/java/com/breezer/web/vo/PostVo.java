@@ -2,7 +2,7 @@ package com.breezer.web.vo;
 
 public class PostVo {
 	private long idx;
-	private String ID;
+	private String id;
 	private String postDate;
 	private String tripDate;
 	private String photo;
@@ -24,12 +24,7 @@ public class PostVo {
 	public void setIdx(long idx) {
 		this.idx = idx;
 	}
-	public String getID() {
-		return ID;
-	}
-	public void setID(String iD) {
-		ID = iD;
-	}
+	
 	public String getPostDate() {
 		return postDate;
 	}
@@ -102,16 +97,21 @@ public class PostVo {
 	public void setLike(long like) {
 		this.like = like;
 	}
-	
-	
-	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	@Override
 	public String toString() {
-		return "PostVo [idx=" + idx + ", ID=" + ID + ", postDate=" + postDate + ", tripDate=" + tripDate + ", photo="
+		return "PostVo [idx=" + idx + ", id=" + id + ", postDate=" + postDate + ", tripDate=" + tripDate + ", photo="
 				+ photo + ", content=" + content + ", location=" + location + ", lat=" + lat + ", lon=" + lon
 				+ ", tourIdx=" + tourIdx + ", category=" + category + ", price=" + price + ", score=" + score
 				+ ", like=" + like + "]";
 	}
+	
+	
 	
 	
 	
