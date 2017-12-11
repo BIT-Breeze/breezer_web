@@ -38,16 +38,10 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 		vo.setAgeRange(request.getParameter( "ageRange" ));
 		vo.setLocale(request.getParameter( "locale" ));
 		vo.setPictureUrl(request.getParameter( "pictureUrl" ));
-		  
+
+		
+		
 		System.out.println("auth/user/login vo = " + vo );
-		
-		
-//		ApplicationContext ac = 
-//		WebApplicationContextUtils.
-//		getWebApplicationContext(request.getServletContext());
-//		UserService userService = 
-//				ac.getBean( UserService.class );
-		
 		UserVo userVo = userService.loginMessage(vo);
 		
 		if( userVo == null ) {
