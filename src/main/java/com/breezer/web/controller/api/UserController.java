@@ -2,10 +2,9 @@ package com.breezer.web.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.breezer.security.AuthUser;
 import com.breezer.web.dto.JSONResult;
 import com.breezer.web.service.UserService;
 import com.breezer.web.vo.UserVo;
@@ -16,14 +15,31 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
-	@ResponseBody
-	@RequestMapping("/login")
-	public JSONResult login(@ModelAttribute UserVo vo) {
+
+	@RequestMapping("/getnaviinfo")
+	public JSONResult getNaviInfo(
+			@AuthUser UserVo authUser ) {
+
+		// 세션 확인
+		if (authUser == null) {
+			return JSONResult.fail("login fail");
+		}
+
 		
-		System.out.println("/api/user/login vo = "+vo);
-		userService.loginMessage(vo) ;
+		// userService.getNaviInfoMessage( authUser.getId() );
+		
 		
 		return JSONResult.success("success");
 	}
+
 }
+
+
+
+
+
+
+
+
+
+
