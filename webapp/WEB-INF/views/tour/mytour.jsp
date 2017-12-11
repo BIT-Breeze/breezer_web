@@ -45,6 +45,10 @@
 			<button type="submit" class="join-button"> logout</button>
 		</form>
 		
+		<form id="sns"  name="sns" method="post" action="${pageContext.servletContext.contextPath }/sns">	
+			<button type="submit" class="join-button"> sns</button>
+		</form>
+		
 		<!-- footer -->
 		<c:import url="/WEB-INF/views/includes/footer.jsp" /> 
 	</div>
