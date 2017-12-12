@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+/* 사이드 메뉴에 레이아웃 적용 */
+	div#info {
+      padding-top: 20px;
+      padding-bottom: 35px;
+    }
+
+
+/* myStory 페이지에 레이아웃 적용 */
+    #firstrow {
+      padding-top: 100px;
+      padding-bottom: 30px;
+    }
+    
+  	#secondrow {
+      padding-top: 60px;
+      padding-bottom: 30px;
+    }
+
