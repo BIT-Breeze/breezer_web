@@ -49,7 +49,16 @@
 	
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
 
-
+	mytour
+		${authUser.nickName }
+		
+		<form id="logout"  name="logout" method="post" action="${pageContext.servletContext.contextPath }/user/logout">	
+			<button type="submit" class="join-button"> logout</button>
+		</form>
+		
+		<form id="sns"  name="sns" method="post" action="${pageContext.servletContext.contextPath }/sns">	
+			<button type="submit" class="join-button"> sns</button>
+		</form>
 
 
 <<<<<<< HEAD
