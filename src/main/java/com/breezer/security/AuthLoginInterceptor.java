@@ -57,6 +57,7 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 		}
 		
 		System.out.println("authLogin success");
+		System.out.println("login id : " + userVo.getId());
 		// session 처리
 		HttpSession session = request.getSession( true );
 		session.setAttribute( "authUser", userVo );
@@ -64,7 +65,7 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 		//response.sendRedirect( request.getContextPath() +"/tour/mytour" );
 
 		
-		JSONResult jsonResult = JSONResult.success("login success");
+		JSONResult jsonResult = JSONResult.success(userVo.getId());
 		String json = new ObjectMapper().writeValueAsString( jsonResult );
 	
 		response.setContentType( "application/json; charset=utf-8" );

@@ -51,6 +51,7 @@
 
 	mytour
 		${authUser.nickName }
+		${authUser.id }
 		
 		<form id="logout"  name="logout" method="post" action="${pageContext.servletContext.contextPath }/user/logout">	
 			<button type="submit" class="join-button"> logout</button>
@@ -58,6 +59,10 @@
 		
 		<form id="sns"  name="sns" method="post" action="${pageContext.servletContext.contextPath }/sns">	
 			<button type="submit" class="join-button"> sns</button>
+		</form>
+		
+		<form id="touradd"  name="touradd" method="post" action="${pageContext.servletContext.contextPath }/${authUser.id }/add">	
+			<button type="submit" class="join-button"> touradd</button>
 		</form>
 
 

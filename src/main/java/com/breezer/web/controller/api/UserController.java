@@ -29,7 +29,7 @@ public class UserController {
 		// userService.getNaviInfoMessage( authUser.getId() );
 		
 		
-		return JSONResult.success("success");
+		return JSONResult.success(authUser.getId());
 	}
 
 }
