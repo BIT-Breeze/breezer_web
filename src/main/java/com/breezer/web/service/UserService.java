@@ -30,6 +30,11 @@ public class UserService {
 		}
 	}
 	
+	// Id로 유저정보 가져오기 
+	public UserVo getUserInfoMessage(UserVo vo) {
+		return userDao.getUser(vo);
+	}
+	
 	
 	
 

@@ -19,9 +19,6 @@ public class UserDao {
 	
 	
 	public UserVo getUser(UserVo vo) {
-		
-				
-		
 		UserVo result = sqlSession.selectOne("user.getByID", vo);
 		return result;
 	}

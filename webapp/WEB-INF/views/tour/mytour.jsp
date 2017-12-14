@@ -50,8 +50,8 @@
 <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
 
 	mytour
-		${authUser.nickName }
-		${authUser.id }
+		${nickname }
+		${id }
 		
 		<form id="logout"  name="logout" method="post" action="${pageContext.servletContext.contextPath }/user/logout">	
 			<button type="submit" class="join-button"> logout</button>
@@ -61,7 +61,7 @@
 			<button type="submit" class="join-button"> sns</button>
 		</form>
 		
-		<form id="touradd"  name="touradd" method="post" action="${pageContext.servletContext.contextPath }/${authUser.id }/add">	
+		<form id="touradd"  name="touradd" method="post" action="${pageContext.servletContext.contextPath }/${id }/add">	
 			<button type="submit" class="join-button"> touradd</button>
 		</form>
 
