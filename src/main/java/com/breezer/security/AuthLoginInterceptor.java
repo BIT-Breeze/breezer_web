@@ -26,9 +26,9 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 		throws Exception {
 		
 
-
+		// 요청 url로 부터 변수 데이터를 받는다 
 		UserVo vo = new UserVo();
-		vo.setId(request.getParameter( "id" ));
+		vo.setFbId(request.getParameter( "fbId" ));
 		vo.setNickName(request.getParameter( "nickName"));
 		vo.setToken(request.getParameter( "token" ));
 		vo.setSignedRequest(request.getParameter("signedRequest"));
@@ -42,17 +42,16 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 		String pictureUrl = request.getParameter( "pictureUrl" ) +"&oe="+ request.getParameter( "oe" ); 
 		vo.setPictureUrl(pictureUrl);
 		
-
-		
-		
+		// 받은 데이터로부터 user 정보를 가져온다 
 		System.out.println("auth/user/login vo = " + vo );
 		UserVo userVo = userService.loginMessage(vo);
 		
+		// userVo 가 null 이면 id가 존재하지 않으므로 다시 로그인 페이지로 보낸다 
 		if( userVo == null ) {
-			System.out.println("authLogin fail");
+			System.out.println("authLogin : get user info fail");
 			//response.sendRedirect( request.getContextPath() + "/" );
 			
-			JSONResult jsonResult = JSONResult.fail("login fail");
+			JSONResult jsonResult = JSONResult.success("login");
 			String json = new ObjectMapper().writeValueAsString( jsonResult );
 		
 			response.setContentType( "application/json; charset=utf-8" );
@@ -60,15 +59,35 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 			return false;
 		}
 		
-		System.out.println("authLogin success");
-		System.out.println("login id : " + userVo.getId());
+		
+		// userVo가 존재는 하지만 id가 설정되어 있지 않은경우 id설정 페이지로 보낸다 
+		if( userVo.getId() == null ) {
+			//id 가 설정 안되면~ 입력하게 해야되 
+			System.out.println("authLogin : nickName is null");
+			
+			HttpSession session = request.getSession( true );
+			session.setAttribute( "authUser", userVo );
+			
+			JSONResult jsonResult = JSONResult.success("user/join");
+			String json = new ObjectMapper().writeValueAsString( jsonResult );
+		
+			response.setContentType( "application/json; charset=utf-8" );
+			response.getWriter().print( json );
+		
+			return false;
+		}
+		
+		
+		// userVo, id 둘다 존재하므로 세션을 저장하고 mytour 페이지로 이동한다 
+		
+		System.out.println("authLogin : login success");
+		//System.out.println("login id : " + userVo.getId());
+		
 		// session 처리
 		HttpSession session = request.getSession( true );
 		session.setAttribute( "authUser", userVo );
 		
 		//response.sendRedirect( request.getContextPath() +"/tour/mytour" );
-
-		
 		JSONResult jsonResult = JSONResult.success(userVo.getId());
 		String json = new ObjectMapper().writeValueAsString( jsonResult );
 	

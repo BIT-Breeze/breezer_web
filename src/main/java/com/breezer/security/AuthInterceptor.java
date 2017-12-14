@@ -58,24 +58,23 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			return false;
 		}
 
-		
 		// 로그인이 정상적으로 되어있는경우 이지점까지 넘어온다.
-
-		// JBlog 주소의 주인만 통과된다. ( 주소의 주인만 관리자 )
-
-		// * 구현해야될 내용 */
-		// 현재 주소를 가져온다.
 		// request.getContextPath()
+		
+		//현재 주소를 가져온다 
 		String url = request.getRequestURL().toString();
 		System.out.println("url : "+url);
 
+		// '/' 로 주소를 분리한다 
 		String[] array;
 		array = url.split("/");
 
+		// 현재 세션의 id와 입력된 주소창의 id를 가져온다 
 		System.out.println("array[4] : "+array[4]);
 		System.out.println(authUser.getId());
 		String urlId = array[4];
 
+		// 현재 세션의 id와 입력된 주소창의 id가 같으면 true, 다르면 false 
 		if (urlId.equals(authUser.getId())) {
 			return true;
 		} else {

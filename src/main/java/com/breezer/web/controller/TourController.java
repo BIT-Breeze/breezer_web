@@ -22,15 +22,21 @@ public class TourController {
 	@Autowired
 	private TourService tourService;
 	
+	
+	// breezer/{id} : mytour 페이지 이동 
 	@RequestMapping("")
 	public String index(
 			@PathVariable String id,
 			@AuthUser UserVo authUser,
 			Model model ) {
 		
-		// 세션 확인 
+		// 세션이 없다면
 		if (authUser == null) {
 			return "user/index";
+		} 
+		// 세션이 있지만 id가 없다면 
+		else if (authUser.getId()==null) {
+			return "user/join";
 		}
 		
 		//id에 대한 유저 정보를 가져온다 
@@ -38,16 +44,14 @@ public class TourController {
 		vo.setId(id);
 		UserVo userVo = userService.getUserInfoMessage(vo);
 		
+		// 페이지로 id와 닉네임을 보내준다
 		model.addAttribute("id", userVo.getId());
 		model.addAttribute("nickname", userVo.getNickName());
-		
-		// id에 대한 tour정보도 뿌려저야겠지 
-		//
 		
 		return "tour/mytour";
 	}
 	
-	
+	// tour add 페이지 이동
 	@Auth
 	@RequestMapping("/add")
 	public String add( 
@@ -70,7 +74,6 @@ public class TourController {
 		if (authUser == null) {
 			return "user/index";
 		}
-		
 		
 		return "tour/mytour";
 	}

@@ -2,6 +2,7 @@ package com.breezer.web.vo;
 
 public class UserVo {
 	private long idx;
+	private String fbId;
 	private String id;
 	private String nickName;
 	private String birth;
@@ -17,11 +18,18 @@ public class UserVo {
 	private String locale;
 	private String pictureUrl;
 	
+	
 	public long getIdx() {
 		return idx;
 	}
 	public void setIdx(long idx) {
 		this.idx = idx;
+	}
+	public String getFbId() {
+		return fbId;
+	}
+	public void setFbId(String fbId) {
+		this.fbId = fbId;
 	}
 	public String getId() {
 		return id;
@@ -107,15 +115,14 @@ public class UserVo {
 	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
 	}
-	
-	
 	@Override
 	public String toString() {
-		return "UserVo [idx=" + idx + ", id=" + id + ", nickName=" + nickName + ", birth=" + birth + ", job=" + job
-				+ ", joinDate=" + joinDate + ", role=" + role + ", token=" + token + ", signedRequest=" + signedRequest
-				+ ", expiresIn=" + expiresIn + ", email=" + email + ", gender=" + gender + ", ageRange=" + ageRange
-				+ ", locale=" + locale + ", pictureUrl=" + pictureUrl + "]";
+		return "UserVo [idx=" + idx + ", fbId=" + fbId + ", id=" + id + ", nickName=" + nickName + ", birth=" + birth
+				+ ", job=" + job + ", joinDate=" + joinDate + ", role=" + role + ", token=" + token + ", signedRequest="
+				+ signedRequest + ", expiresIn=" + expiresIn + ", email=" + email + ", gender=" + gender + ", ageRange="
+				+ ageRange + ", locale=" + locale + ", pictureUrl=" + pictureUrl + "]";
 	}
+	
 	
 	
 	

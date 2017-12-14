@@ -131,7 +131,7 @@ function login() {
 		url: "/breezer/user/login",
 		type: "post",
 		dataType: "json",
-		data: "id=" + fb_userID + 
+		data: "fbId=" + fb_userID + 
 			  "&nickName=" + fb_name + 
 			  "&token=" + fb_token +
 			  "&signedRequest=" + fb_signedRequest + 
@@ -143,8 +143,8 @@ function login() {
 			  "&pictureUrl=" + fb_picture_url, 
 		success: function( response ) {
 			if( response.result == "fail" ) {
-				console.log( response.message );
-				return;
+				console.log("fail : "+ response.message );
+				
 			}
 			
 			console.log(response.data)

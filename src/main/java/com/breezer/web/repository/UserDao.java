@@ -18,12 +18,21 @@ public class UserDao {
 	}
 	
 	
-	public UserVo getUser(UserVo vo) {
-		UserVo result = sqlSession.selectOne("user.getByID", vo);
+	public UserVo getUserByFbId(UserVo vo) {
+		UserVo result = sqlSession.selectOne("user.getByFbId", vo);
+		return result;
+	}
+	
+	public UserVo getUserById(UserVo vo) {
+		UserVo result = sqlSession.selectOne("user.getById", vo);
 		return result;
 	}
 	
 	public int resetUser(UserVo vo) {
-		return sqlSession.update("user.resetByID", vo);
+		return sqlSession.update("user.resetByFbId", vo);
+	}
+	
+	public int setId(UserVo vo) {
+		return sqlSession.update("user.setId", vo);
 	}
 }

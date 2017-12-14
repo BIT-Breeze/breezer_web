@@ -22,14 +22,13 @@ public class AuthUserHandlerMethodArgumentResolver implements HandlerMethodArgum
 		WebDataBinderFactory binderFactory) 
 		throws Exception {
 		
+		// @AuthUser 가 붙어있고 파라미터 타입이 UserVo 인지 확인 
 		if( supportsParameter(parameter) == false) {
 			return WebArgumentResolver.UNRESOLVED;
 		}
 		
-		// @AuthUser 가 붙어있고 파라미터 타입이 UserVo
-		HttpServletRequest request = 
-				webRequest.getNativeRequest( HttpServletRequest.class );
 		
+		HttpServletRequest request = webRequest.getNativeRequest( HttpServletRequest.class );
 		HttpSession session = request.getSession();
 		if( session == null ) {
 			return null;

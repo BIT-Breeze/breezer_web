@@ -25,12 +25,12 @@ public class UserController {
 			return JSONResult.fail("login fail");
 		}
 
-		
 		// userService.getNaviInfoMessage( authUser.getId() );
 		
 		
 		return JSONResult.success(authUser.getId());
 	}
+	
 
 }
 

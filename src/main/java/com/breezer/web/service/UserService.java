@@ -15,7 +15,7 @@ public class UserService {
 	// 전체적인 로그인
 	public UserVo loginMessage(UserVo vo) {
 		// id 로 유저가 존재하는지 채크
-		UserVo getVo = userDao.getUser(vo);
+		UserVo getVo = userDao.getUserByFbId(vo);
 		
 		if ( getVo != null) {
 			// 있으면 token, expiresIn 을 업데이트
@@ -33,7 +33,13 @@ public class UserService {
 	
 	// Id로 유저정보 가져오기 
 	public UserVo getUserInfoMessage(UserVo vo) {
-		return userDao.getUser(vo);
+		return userDao.getUserById(vo);
+	}
+	
+	
+	public boolean setIdMessage(UserVo vo) {
+		
+		return userDao.setId(vo) == 1;
 	}
 	
 	

@@ -3,7 +3,17 @@
 
 <mapper namespace="user">
 
-	<select id="getByID" 
+	<select id="getByFbId" 
+			parameterType="uservo"
+			resultType="uservo">
+		<![CDATA[
+		select * 
+		from TB_USER 
+		where fbId=#{fbId }
+		]]>
+	</select>
+	
+	<select id="getById" 
 			parameterType="uservo"
 			resultType="uservo">
 		<![CDATA[
@@ -16,21 +26,29 @@
 	
 	<insert id="insert" parameterType="uservo">
 		<![CDATA[
-		 	insert into TB_USER (id, nickName, birth, job, joinDate, role, token, signedRequest, expiresIn, email, gender, ageRange, locale, pictureUrl )
-			values (#{id }, #{nickName }, #{birth }, #{job }, curdate(), 'USER', #{token }, #{signedRequest }, #{expiresIn }, #{email }, #{gender }, #{ageRange }, #{locale }, #{pictureUrl } )
+		 	insert into TB_USER (fbId, nickName, birth, job, joinDate, role, token, signedRequest, expiresIn, email, gender, ageRange, locale, pictureUrl )
+			values (#{fbId }, #{nickName }, #{birth }, #{job }, curdate(), 'USER', #{token }, #{signedRequest }, #{expiresIn }, #{email }, #{gender }, #{ageRange }, #{locale }, #{pictureUrl } )
 	    ]]>		
 	</insert>
 	
 	
-	<update id="resetByID" parameterType="uservo">
+	<update id="resetByFbId" parameterType="uservo">
 		<![CDATA[
 			update TB_USER
-			set 	nickName = #{nickName },
-					token = #{token },
+			set 	token = #{token },
 					signedRequest = #{signedRequest },
 					expiresIn = #{expiresIn },
 					pictureUrl = #{pictureUrl }
-			where id = #{id }		
+			where fbId = #{fbId }		
+		]]>
+	</update>	
+	
+	
+	<update id="setId" parameterType="uservo">
+		<![CDATA[
+			update TB_USER
+			set 	id = #{id }
+			where fbId = #{fbId }		
 		]]>
 	</update>	
 	
