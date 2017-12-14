@@ -22,4 +22,8 @@ public class UserDao {
 		UserVo result = sqlSession.selectOne("user.getByID", vo);
 		return result;
 	}
+	
+	public int resetUser(UserVo vo) {
+		return sqlSession.update("user.resetByID", vo);
+	}
 }

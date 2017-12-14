@@ -37,7 +37,11 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter {
 		vo.setGender(request.getParameter( "gender" ));
 		vo.setAgeRange(request.getParameter( "ageRange" ));
 		vo.setLocale(request.getParameter( "locale" ));
-		vo.setPictureUrl(request.getParameter( "pictureUrl" ));
+
+		// pictureUrl 에 &oe= 때문에 뒤에가 짤리므로 이것을 pictureUrl 에 붙여준다 
+		String pictureUrl = request.getParameter( "pictureUrl" ) +"&oe="+ request.getParameter( "oe" ); 
+		vo.setPictureUrl(pictureUrl);
+		
 
 		
 		

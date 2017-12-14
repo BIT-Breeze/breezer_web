@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="user">
+
 	<select id="getByID" 
 			parameterType="uservo"
 			resultType="uservo">
@@ -12,6 +13,7 @@
 		]]>
 	</select>
 	
+	
 	<insert id="insert" parameterType="uservo">
 		<![CDATA[
 		 	insert into TB_USER (id, nickName, birth, job, joinDate, role, token, signedRequest, expiresIn, email, gender, ageRange, locale, pictureUrl )
@@ -20,7 +22,17 @@
 	</insert>
 	
 	
-	
+	<update id="resetByID" parameterType="uservo">
+		<![CDATA[
+			update TB_USER
+			set 	nickName = #{nickName },
+					token = #{token },
+					signedRequest = #{signedRequest },
+					expiresIn = #{expiresIn },
+					pictureUrl = #{pictureUrl }
+			where id = #{id }		
+		]]>
+	</update>	
 	
 	
 	

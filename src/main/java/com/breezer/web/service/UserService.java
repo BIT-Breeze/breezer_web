@@ -14,13 +14,14 @@ public class UserService {
 
 	// 전체적인 로그인
 	public UserVo loginMessage(UserVo vo) {
-		// 유저가 존재하는지 채크
+		// id 로 유저가 존재하는지 채크
 		UserVo getVo = userDao.getUser(vo);
 		
 		if ( getVo != null) {
 			// 있으면 token, expiresIn 을 업데이트
 			System.out.println("userService id is already exist");
-			//userDao.etcUpdate(vo);
+			
+			userDao.resetUser(getVo);
 			return getVo;
 		} else {
 			// 없으면 joinMessage
