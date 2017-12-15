@@ -3,6 +3,14 @@
 
 <mapper namespace="user">
 
+	<insert id="insert" parameterType="uservo">
+		<![CDATA[
+		 	insert into TB_USER (fbId, nickName, birth, job, joinDate, role, token, signedRequest, expiresIn, email, gender, ageRange, locale, pictureUrl )
+			values (#{fbId }, #{nickName }, #{birth }, #{job }, curdate(), 'USER', #{token }, #{signedRequest }, #{expiresIn }, #{email }, #{gender }, #{ageRange }, #{locale }, #{pictureUrl } )
+	    ]]>		
+	</insert>
+	
+	
 	<select id="getByFbId" 
 			parameterType="uservo"
 			resultType="uservo">
@@ -13,6 +21,7 @@
 		]]>
 	</select>
 	
+	
 	<select id="getById" 
 			parameterType="uservo"
 			resultType="uservo">
@@ -22,14 +31,6 @@
 		where id=#{id }
 		]]>
 	</select>
-	
-	
-	<insert id="insert" parameterType="uservo">
-		<![CDATA[
-		 	insert into TB_USER (fbId, nickName, birth, job, joinDate, role, token, signedRequest, expiresIn, email, gender, ageRange, locale, pictureUrl )
-			values (#{fbId }, #{nickName }, #{birth }, #{job }, curdate(), 'USER', #{token }, #{signedRequest }, #{expiresIn }, #{email }, #{gender }, #{ageRange }, #{locale }, #{pictureUrl } )
-	    ]]>		
-	</insert>
 	
 	
 	<update id="resetByFbId" parameterType="uservo">
@@ -43,7 +44,7 @@
 		]]>
 	</update>	
 	
-	
+		
 	<update id="setId" parameterType="uservo">
 		<![CDATA[
 			update TB_USER
@@ -55,46 +56,5 @@
 	
 	
 	
-	
-	
-
-	<select id="getByNo" 
-			parameterType="long"
-			resultType="uservo">
-		<![CDATA[
-		select no, name, email, gender
-		  from member 
-		 where no=#{no }
-		]]>
-	</select>
-
-	<select id="getByEmail" 
-			parameterType="string"
-			resultType="uservo">
-		<![CDATA[
-		select no, name 
-		  from member 
-		 where email=#{email }
-		]]>
-	</select>
-			
-	<update id="update" parameterType="uservo">
-		<![CDATA[
-			update member 
-			   set name=#{name },
-		]]>
-		<if test="password != ''">
-			<![CDATA[			   
-			  	   password=#{password },
-			]]>  	   
-		</if>	   	   
-		<![CDATA[	   	   
-			       gender=#{gender }
-			 where no=#{no }		
-		]]>
-	</update>			
-	
-			
-			
 	
 </mapper>

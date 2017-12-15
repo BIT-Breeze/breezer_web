@@ -36,7 +36,7 @@ public class UserController {
 		
 		// fbid 를 가져와 그곳에 id를 저장하고 authUser에 id 셋팅 
 		vo.setFbId(authUser.getFbId());
-		userService.setIdMessage(vo);
+		userService.setIdByFbIdMessage(vo);
 		authUser.setId(vo.getId());
 		
 		// 세션에 id가 들어간 authUser로 변경 

@@ -42,7 +42,7 @@ public class TourController {
 		//id에 대한 유저 정보를 가져온다 
 		UserVo vo = new UserVo();
 		vo.setId(id);
-		UserVo userVo = userService.getUserInfoMessage(vo);
+		UserVo userVo = userService.getUserByIdMessage(vo);
 		
 		// 페이지로 id와 닉네임을 보내준다
 		model.addAttribute("id", userVo.getId());
